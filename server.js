@@ -39,9 +39,12 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use("*", (req, res, next) => {
-  next(new ApiError("Can't find this route ", 404));
+app.use("/", (req, res) => {
+  res.send("server running *.*");
 });
+// app.use("*", (req, res, next) => {
+//   next(new ApiError("Can't find this route ", 404));
+// });
 
 app.use(globalError);
 
